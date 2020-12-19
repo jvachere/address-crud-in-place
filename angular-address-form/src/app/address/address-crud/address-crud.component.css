@@ -1,0 +1,3 @@
+::ng-deep  .hide-underlines > div > mat-form-field > div > .mat-form-field-underline {
+  display: none;
+}

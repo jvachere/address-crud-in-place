@@ -1,0 +1,58 @@
+<form [formGroup]="addressForm" disabled (ngSubmit)="submit()" fxLayout="column"
+  [ngClass]=" {'hide-underlines': !isEditing}">
+  <div>
+    <mat-form-field fxFlexFill>
+      <mat-label>Name</mat-label>
+      <span *ngIf="!isEditing">{{address.name}}</span>
+      <input matInput formControlName="name" [hidden]="!isEditing">
+    </mat-form-field>
+  </div>
+  <div fxLayoutGap="10px">
+    <mat-form-field fxFlex="80">
+      <mat-label>Street</mat-label>
+      <span *ngIf="!isEditing">{{address.street}}</span>
+      <input matInput formControlName="street" [hidden]="!isEditing">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="20">
+      <mat-label>Unit #</mat-label>
+      <span *ngIf="!isEditing">{{address.unitNumber}}</span>
+      <input matInput formControlName="unitNumber" [hidden]="!isEditing">
+    </mat-form-field>
+  </div>
+  <div fxLayoutGap="10px">
+    <mat-form-field fxFlex="40">
+      <mat-label>City</mat-label>
+      <span *ngIf="!isEditing">{{address.city}}</span>
+      <input matInput formControlName="city" [hidden]="!isEditing">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="30">
+      <mat-label>State/Province</mat-label>
+      <span *ngIf="!isEditing">{{address.stateProvince}}</span>
+      <input matInput formControlName="stateProvince" [hidden]="!isEditing">
+    </mat-form-field>
+
+    <mat-form-field fxFlex="30">
+      <mat-label>Postal Code</mat-label>
+      <span *ngIf="!isEditing">{{address.postalCode}}</span>
+      <input matInput formControlName="postalCode" [hidden]="!isEditing">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <span *ngIf="!isEditing">{{address.country}}</span>
+      <input matInput formControlName="country" [hidden]="!isEditing">
+    </mat-form-field>
+    <div fxLayoutGap="10px">
+      <button mat-raised-button type="button" (click)="toggleEdit()" *ngIf="!isEditing">Edit </button>
+      <button mat-raised-button type="button" (click)="delete()" *ngIf="!isEditing">Delete</button>
+
+      <button mat-raised-button type="submit" [disabled]="!addressForm.dirty || addressForm.invalid" *ngIf="isEditing">Save</button>
+      <button mat-raised-button type="button" (click)="cancel()" *ngIf="isEditing">Cancel</button>
+
+    </div>
+
+  </div>
+</form>

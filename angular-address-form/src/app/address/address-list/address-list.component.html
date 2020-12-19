@@ -1,0 +1,11 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div>
+    <button [disabled]="isCreating" mat-raised-button (click)="create()">Create</button>
+  </div>
+  <div gdColumns="repeat(auto-fill, minmax(400px, 1fr))" gdGap="20px 20px">
+    <mat-card *ngFor="let address of addresses">
+      <app-address-crud (createCompleteEvent)="completeCreate()" (deleteEvent)="loadAddresses()" [address]="address">
+      </app-address-crud>
+    </mat-card>
+  </div>
+</div>

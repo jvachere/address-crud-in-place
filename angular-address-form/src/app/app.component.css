@@ -1,0 +1,21 @@
+.app-icon {
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.app-content {
+  width: 100%;
+  padding-top: 84px;
+}
+
+mat-toolbar {
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.app-title {
+  outline: none;
+  cursor: pointer;
+}
